@@ -275,7 +275,7 @@ Run this module as root or start docker service manually."))
             tag,
             image.id.slice(0, 12),
             DateTime.strptime(image.info["Created"].to_s, "%s").to_s,
-            Y2Storage::DiskSize.new(image.info["VirtualSize"]).to_human_string
+            Y2Storage::DiskSize.new(image.info["Size"]).to_human_string
           )
         end
       end
