@@ -48,7 +48,7 @@ module YDocker
       return unless create_dialog
 
       begin
-        return controller_loop
+        controller_loop
       ensure
         close_dialog
       end
@@ -75,11 +75,11 @@ module YDocker
           _("Docker service does not run. Should YaST start docker? Otherwise YaST quits.")
         )
 
-        return Yast::Service.start("docker")
+        Yast::Service.start("docker")
       else
         Yast::Popup.Error(_("Docker service does not run. \
 Run this module as root or start docker service manually."))
-        return false
+        false
       end
     end
 
@@ -155,8 +155,10 @@ Run this module as root or start docker service manually."))
 
     def stop_container
       return unless Yast::Popup.YesNo(_("Do you really want to stop the running container?"))
+
       selected_container.stop!
       return unless Yast::Popup.YesNo(_("Do you want to remove the container?"))
+
       selected_container.delete
 
       redraw_containers
@@ -164,8 +166,10 @@ Run this module as root or start docker service manually."))
 
     def kill_container
       return unless Yast::Popup.YesNo(_("Do you really want to kill the running container?"))
+
       selected_container.kill!
       return unless Yast::Popup.YesNo(_("Do you want to remove the container?"))
+
       selected_container.delete
 
       redraw_containers

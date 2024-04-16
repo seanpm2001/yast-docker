@@ -35,7 +35,7 @@ module YDocker
       return unless create_dialog
 
       begin
-        return controller_loop
+        controller_loop
       ensure
         close_dialog
       end
@@ -116,9 +116,9 @@ module YDocker
             " || (echo \"Failed to attach. Will close window in 5 seconds\";sleep 5)"
 
           Yast::Execute.locally!("xterm", "-e", command)
-        rescue Cheetah::ExecutionFailed => error
+        rescue Cheetah::ExecutionFailed => e
           Yast::Popup.Error(
-            format(_("Failed to run terminal. Error: %{error}"), error: error.message)
+            format(_("Failed to run terminal. Error: %{error}"), error: e.message)
           )
         end
       end

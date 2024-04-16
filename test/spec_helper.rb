@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # ------------------------------------------------------------------------------
 # Copyright (c) 2017 SUSE LLC
 #
@@ -19,7 +17,7 @@
 # current contact information at www.suse.com.
 # ------------------------------------------------------------------------------
 
-$LOAD_PATH.unshift(File.expand_path("../../src/lib", __FILE__))
+$LOAD_PATH.unshift(File.expand_path("../src/lib", __dir__))
 
 RSpec.configure do |config|
   config.mock_with :rspec do |c|
@@ -36,7 +34,7 @@ if ENV["COVERAGE"]
   end
 
   # track all ruby files under src
-  src_location = File.expand_path("../../src", __FILE__)
+  src_location = File.expand_path("../src", __dir__)
   SimpleCov.track_files("#{src_location}/**/*.rb")
 
   # additionally use the LCOV format for on-line code coverage reporting at CI
