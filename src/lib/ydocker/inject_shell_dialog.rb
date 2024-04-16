@@ -50,17 +50,15 @@ module YDocker
     end
 
     def controller_loop
-      loop do
-        input = Yast::UI.UserInput
-        case input
-        when :ok
-          attach
-          return
-        when :cancel
-          return
-        else
-          raise "Unknown action #{input}"
-        end
+      # no need to loop, one shot is enough
+      input = Yast::UI.UserInput
+      case input
+      when :ok
+        attach
+      when :cancel
+        nil
+      else
+        raise "Unknown action #{input}"
       end
     end
 
