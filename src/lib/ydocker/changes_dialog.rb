@@ -33,7 +33,7 @@ module YDocker
       return unless create_dialog
 
       begin
-        return controller_loop
+        controller_loop
       ensure
         close_dialog
       end
@@ -48,14 +48,13 @@ module YDocker
     end
 
     def controller_loop
-      loop do
-        input = Yast::UI.UserInput
-        case input
-        when :ok, :cancel
-          return :ok
-        else
-          raise "Unknown action #{input}"
-        end
+      # no need to loop, one shot is enough
+      input = Yast::UI.UserInput
+      case input
+      when :ok, :cancel
+        :ok
+      else
+        raise "Unknown action #{input}"
       end
     end
 
