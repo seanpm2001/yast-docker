@@ -2,8 +2,7 @@
 
 [![Workflow Status](https://github.com/yast/yast-docker/workflows/CI/badge.svg?branch=master)](
 https://github.com/yast/yast-docker/actions?query=branch%3Amaster)
-[![Jenkins Status](https://ci.opensuse.org/buildStatus/icon?job=yast-yast-docker-master)](
-https://ci.opensuse.org/view/Yast/job/yast-yast-docker-master/)
+[![OBS](https://github.com/yast/yast-docker/actions/workflows/submit.yml/badge.svg)](https://github.com/yast/yast-docker/actions/workflows/submit.yml)
 [![Coverage Status](https://coveralls.io/repos/github/yast/yast-docker/badge.svg?branch=master)](
 https://coveralls.io/github/yast/yast-docker?branch=master)
 
